@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Responsive — breakpoints de tablet y móvil.
+   ========================================================================== */
+@media(max-width:1024px){
+  .dash-bottom{grid-template-columns:1fr 1fr}
+  .motd{grid-column:1/-1}
+  .full-cal{grid-template-columns:1fr}
+  .msg-layout{grid-template-columns:1fr}
+  .msg-list{max-height:200px}
+  .stat-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0)}
+  #sidebar-overlay.show{display:block}
+  #sidebar-collapse-btn{display:none}
+  #main{margin-left:0}
+  body.sidebar-collapsed #main{margin-left:0}
+  #header{padding:12px 16px}
+  #content{padding:16px}
+  #menu-toggle{display:flex}
+  .dash-grid{grid-template-columns:1fr}
+  .dash-bottom{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr 1fr;gap:12px}
+  .hero h1{font-size:22px}
+  .user-info{display:none}
+  .full-cal-main .cal-grid .day-cell{min-height:44px;padding:4px 2px}
+  .notes-grid,.doc-grid,.evals-grid{grid-template-columns:1fr}
+}

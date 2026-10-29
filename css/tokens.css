@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Design tokens — ref: DESIGN.md (Quizlet-style system) + Apple system font/blur
+   Variables de color, tipografía, espaciado y sombras. Todo lo demás en /css
+   consume estas variables — nunca un color literal fuera de aquí (salvo los
+   colores semánticos de materia, que son categóricos, no de marca).
+   ========================================================================== */
+:root {
+  --iris-bolt:#4255ff;
+  --ink-charcoal:#282e3e;
+  --slate-veil:#586380;
+  --fog-mist:#939bb4;
+  --chalk-canvas:#f6f7fb;
+  --paper-white:#ffffff;
+  --lilac-wash:#edefff;
+  --mist-border:#d9dde8;
+
+  --primary-light: var(--iris-bolt);
+  --accent: var(--iris-bolt);
+  --accent-soft: var(--lilac-wash);
+  --bg: var(--chalk-canvas);
+  --surface: var(--paper-white);
+  --sidebar-bg: var(--paper-white);
+  --header-bg: rgba(255,255,255,0.72);
+  --text: var(--ink-charcoal);
+  --text-secondary: var(--slate-veil);
+  --text-muted: var(--fog-mist);
+  --border: var(--mist-border);
+  --shadow: rgba(40,46,62,0.1) 0 2px 4px 0;
+  --shadow-lg: rgba(40,46,62,0.1) 0 4px 16px 0;
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-feature: 24px;
+  --radius-pill: 200px;
+  --sidebar-w: 256px;
+  --sidebar-w-collapsed: 76px;
+  --ciencias: #2E7D32;
+  --matematicas: #C2185B;
+  --ingles: #E65100;
+  --lengua: #7B1FA2;
+  --historia: #1565C0;
+  --arte: #00838F;
+  --ed-fisica: #D84315;
+  --font-display: -apple-system, BlinkMacSystemFont, 'Inter', ui-sans-serif, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Inter', ui-sans-serif, sans-serif;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#000000; --surface:#1c1c1e; --sidebar-bg:#1c1c1e; --header-bg:rgba(28,28,30,0.72);
+  --text:#f5f5f7; --text-secondary:#98989d; --text-muted:#68686d;
+  --border:#38383a; --accent-soft:rgba(66,85,255,0.16);
+  --primary-light:#6b80ff; --accent:#6b80ff;
+  --shadow: rgba(0,0,0,0.4) 0 2px 4px 0;
+  --shadow-lg: rgba(0,0,0,0.5) 0 4px 16px 0;
+}}
+:root[data-theme="dark"]{
+  --bg:#000000; --surface:#1c1c1e; --sidebar-bg:#1c1c1e; --header-bg:rgba(28,28,30,0.72);
+  --text:#f5f5f7; --text-secondary:#98989d; --text-muted:#68686d;
+  --border:#38383a; --accent-soft:rgba(66,85,255,0.16);
+  --primary-light:#6b80ff; --accent:#6b80ff;
+  --shadow: rgba(0,0,0,0.4) 0 2px 4px 0;
+  --shadow-lg: rgba(0,0,0,0.5) 0 4px 16px 0;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;line-height:1.2;font-weight:600}
+p{margin:0}
+.title-block{margin-bottom:24px}
+.title-block h1,.title-block h2{margin-bottom:3px}
+.title-block p{color:var(--text-secondary);font-size:14px}
+button{font-family:var(--font-body);cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:var(--font-body);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;background:var(--surface);font-size:14px;outline:none;transition:border-color .2s}
+input:focus,textarea:focus,select:focus{border-color:var(--primary-light)}
+textarea{resize:vertical;min-height:100px}

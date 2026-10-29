@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda Escolar Acoandes</title>
+<link rel="icon" href="assets/logo-acoandes.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div id="app">
+  <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <aside id="sidebar"><script>if(localStorage.getItem('acoandes_sidebar')==='collapsed')document.body.classList.add('sidebar-collapsed')</script>
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <img src="assets/logo-acoandes.png" alt="Colegio Acoandes">
+        <span class="school-name">Acoandes<small>Agenda Escolar</small></span>
+      </div>
+      <button id="sidebar-collapse-btn" onclick="toggleSidebarCollapse()" title="Contraer/expandir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+    </div>
+    <nav class="sidebar-nav" id="nav"></nav>
+    <div class="sidebar-footer">
+      <div class="nav-item logout" onclick="location.href='index.html'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Cerrar sesión</span>
+      </div>
+    </div>
+  </aside>
+  <div id="main">
+    <header id="header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button id="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="header-left">
+          <h2 id="greeting"></h2>
+          <p>Organiza tu día, cumple tus metas y alcanza tu mejor versión.</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="notif-btn" onclick="navigate('recordatorios')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          <span class="notif-badge" id="notif-count">3</span>
+        </button>
+        <div class="user-pill" onclick="navigate('perfil')" style="cursor:pointer">
+          <div class="user-avatar" id="user-pill-avatar">AP</div>
+          <div class="user-info">
+            <div class="name" id="user-pill-name">Angelly Porras</div>
+            <div class="role">Estudiante</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="content"></div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal"></div>
+</div>
+
+<!-- Config -->
+<script src="js/config/constants.js"></script>
+<script src="js/config/icons.js"></script>
+
+<!-- Utils -->
+<script src="js/utils/helpers.js"></script>
+
+<!-- Models -->
+<script src="js/models/store.model.js"></script>
+<script src="js/models/task.model.js"></script>
+<script src="js/models/evaluation.model.js"></script>
+<script src="js/models/reminder.model.js"></script>
+<script src="js/models/note.model.js"></script>
+<script src="js/models/event.model.js"></script>
+<script src="js/models/message.model.js"></script>
+<script src="js/models/settings.model.js"></script>
+
+<!-- Views -->
+<script src="js/views/dashboard.view.js"></script>
+<script src="js/views/agenda.view.js"></script>
+<script src="js/views/tasks.view.js"></script>
+<script src="js/views/evaluations.view.js"></script>
+<script src="js/views/calendar.view.js"></script>
+<script src="js/views/reminders.view.js"></script>
+<script src="js/views/notes.view.js"></script>
+<script src="js/views/documents.view.js"></script>
+<script src="js/views/messages.view.js"></script>
+<script src="js/views/profile.view.js"></script>
+<script src="js/views/settings.view.js"></script>
+
+<!-- Controllers -->
+<script src="js/controllers/app.controller.js"></script>
+<script src="js/controllers/nav.controller.js"></script>
+<script src="js/controllers/header.controller.js"></script>
+<script src="js/controllers/modal.controller.js"></script>
+<script src="js/controllers/task.controller.js"></script>
+<script src="js/controllers/evaluation.controller.js"></script>
+<script src="js/controllers/calendar.controller.js"></script>
+<script src="js/controllers/reminder.controller.js"></script>
+<script src="js/controllers/note.controller.js"></script>
+<script src="js/controllers/message.controller.js"></script>
+<script src="js/controllers/settings.controller.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/main.js"></script>
+</body>
+</html>
